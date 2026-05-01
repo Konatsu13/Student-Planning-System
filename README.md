@@ -1,8 +1,9 @@
 # Pesan Developer
 > **INI AREA PRIVASIKU PRIVASIKU, INI AREA PRIVASIKU JANGAN KAMU UBAH, JANGAN KAMU SENTUH!**
 
+**Buat penyemangat doang biar lebih rajin commit 😊**
 ![Penyemangat aku supaya lebih rajin commit 😊](assets/Rossi_AE.jpg)
-Buat penyemangat doang biar lebih rajin commit 😊
+
 
 # List Tugas Yang Sedang Dikerjakan Hacker Fathan
 - [x] Buat homepage
@@ -20,8 +21,8 @@ Buat penyemangat doang biar lebih rajin commit 😊
 
 # Referensi Belajar
 Teruntuk @Arfa57 aku punya beberapa referensi video tutorial buat kamu nih
-[Belajar Next JS bahasa Indonesia](https://youtu.be/WyTIjLegirE?si=R99g1ziYg7CnWtSu)
-[Basic Javascript](https://youtu.be/mD6uSGSjgr4?si=otGOpzXyX_I9phlO)
+- [Belajar Next JS bahasa Indonesia](https://youtu.be/WyTIjLegirE?si=R99g1ziYg7CnWtSu)
+- [Basic Javascript](https://youtu.be/mD6uSGSjgr4?si=otGOpzXyX_I9phlO)
 
 #  Dokumentasi dariku
 <details>
