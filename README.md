@@ -1,6 +1,7 @@
 # Pesan Developer
-Ini area privasiku privasiku, ini area privasiku jangan kamu ubah, jangan kamu sentuh.
+> **INI AREA PRIVASIKU PRIVASIKU, INI AREA PRIVASIKU JANGAN KAMU UBAH, JANGAN KAMU SENTUH!**
 
+![Penyemangat aku supaya lebih rajin commit 😊](assets/Rossi_AE.jpg)
 - [x] Buat homepage
 - [ ] Database
 - [x] Buat API database
