@@ -1,6 +1,6 @@
-# Pesan Developer
+# Pesan Developer 🚀
 > **INI AREA PRIVASIKU PRIVASIKU, INI AREA PRIVASIKU JANGAN KAMU UBAH, JANGAN KAMU SENTUH!**
-
+---
 **Buat penyemangat doang biar lebih rajin commit 😊**
 ![Penyemangat aku supaya lebih rajin commit 😊](assets/Rossi_AE.jpg)
 
@@ -12,7 +12,7 @@
 - [ ] Buat page lain
 - [ ] Pakai Next JS
 
-# Perbandingan Framework JS dan Native JS
+# Perbandingan Framework JS dan Native JS 🔥
 
 | Tipe | Keunggulan | Kekurangan | Contoh |
 | :--- | :--- | :--- | :--- |
@@ -20,7 +20,7 @@
 | Framewoek | Lebih Cepat | Harus paham JS | Next JS, Node JS, Typescript |
 
 # Referensi Belajar
-Teruntuk @Arfa57 aku punya beberapa referensi video tutorial buat kamu nih
+Buat yang mau-mau aja:
 - [Belajar Next JS bahasa Indonesia](https://youtu.be/WyTIjLegirE?si=R99g1ziYg7CnWtSu)
 - [Basic Javascript](https://youtu.be/mD6uSGSjgr4?si=otGOpzXyX_I9phlO)
 
