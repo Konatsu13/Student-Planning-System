@@ -2,10 +2,10 @@
 Ini area privasiku privasiku, ini area privasiku jangan kamu ubah, jangan kamu sentuh.
 
 - [x] Buat homepage
-- [] Database
+- [ ] Database
 - [x] Buat API database
-- [] Buat page lain
-- [] Pakai Next JS
+- [ ] Buat page lain
+- [ ] Pakai Next JS
 
 # Perbandingan Framework JS dan Native JS
 
