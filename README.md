@@ -2,6 +2,9 @@
 > **INI AREA PRIVASIKU PRIVASIKU, INI AREA PRIVASIKU JANGAN KAMU UBAH, JANGAN KAMU SENTUH!**
 
 ![Penyemangat aku supaya lebih rajin commit 😊](assets/Rossi_AE.jpg)
+Buat penyemangat doang biar lebih rajin commit 😊
+
+# List Tugas Yang Sedang Dikerjakan Hacker Fathan
 - [x] Buat homepage
 - [ ] Database
 - [x] Buat API database
@@ -14,3 +17,16 @@
 | :--- | :--- | :--- | :--- |
 | Native | Sudah dipelajari | lebih lama di coding | HTML, CSS, JS, PHP |
 | Framewoek | Lebih Cepat | Harus paham JS | Next JS, Node JS, Typescript |
+
+# Referensi Belajar
+Teruntuk @Arfa57 aku punya beberapa referensi video tutorial buat kamu nih
+[Belajar Next JS bahasa Indonesia](https://youtu.be/WyTIjLegirE?si=R99g1ziYg7CnWtSu)
+[Basic Javascript](https://youtu.be/mD6uSGSjgr4?si=otGOpzXyX_I9phlO)
+
+#  Dokumentasi dariku
+<details>
+<summary>Tekan Disini Untuk Melihat 😊 </summary>
+
+1/5/2026: Udah ada kemajuan styling dan lagi otak atik file README.md wkwkwk soalnya lebih asik.
+
+</details>
