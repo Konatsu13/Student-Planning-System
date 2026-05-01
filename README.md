@@ -1,8 +1,15 @@
-# Student-Planning-System
-Simply School Project. X PPLG 5
+# Pesan Developer
+Ini area privasiku privasiku, ini area privasiku jangan kamu ubah, jangan kamu sentuh.
 
-# Anggota Kelompok
-1. Diandra Aldrin Frontend
-2. Fathan Athaya Developer
-3. Huga Fayyadh AI
-4. Nizar Fullstack
+- [x] Buat homepage
+- [] Database
+- [x] Buat API database
+- [] Buat page lain
+- [] Pakai Next JS
+
+# Perbandingan Framework JS dan Native JS
+
+| Tipe | Keunggulan | Kekurangan | Contoh |
+| :--- | :--- | :--- | :--- |
+| Native | Sudah dipelajari | lebih lama di coding | HTML, CSS, JS, PHP |
+| Framewoek | Lebih Cepat | Harus paham JS | Next JS, Node JS, Typescript |
