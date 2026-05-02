@@ -4,7 +4,11 @@
 > **INI AREA PRIVASIKU PRIVASIKU, INI AREA PRIVASIKU JANGAN KAMU UBAH, JANGAN KAMU SENTUH!**
 ---
 **Buat penyemangat doang biar lebih rajin commit 😊**
-![Penyemangat aku supaya lebih rajin commit 😊](assets/Rossi_AE.jpg)
+<p align="center">
+  <img src="assets/Rossi_AE" width="300" title="Semangat Commit! 🔥">
+  <br>
+  <i>"Asupan psikolog wkwkwk."</i>
+</p>
 
 
 ## List Tugas Yang Sedang Dikerjakan Hacker Fathan
