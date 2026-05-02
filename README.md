@@ -38,10 +38,10 @@
 <details>
 <summary><b>Why Supabase for this School Project?</b></summary>
 
-- **Easy To Use:** Sangat cepat untuk setup awal.
-- **Fast Performance:** Cocok untuk aplikasi mobile yang butuh akses cepat.
-- **Good Security:** Data tugas siswa tersimpan dengan aman.
-- **Free Tier:** Sangat ramah di kantong pelajar!
+- **Easy To Use:** Very fast for initial setup and configuration.
+- **Fast Performance:** Optimized for mobile applications that require quick data access.
+- **Good Security:** Ensures all student assignment data is stored securely.
+- **Free Tier:** Highly budget-friendly and accessible for students!
 </details>
 
 ---
