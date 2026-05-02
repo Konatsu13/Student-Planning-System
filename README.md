@@ -5,7 +5,7 @@
 ---
 **Buat penyemangat doang biar lebih rajin commit 😊**
 <p align="center">
-  <img src="assets/Rossi_AE" width="300" title="Semangat Commit! 🔥">
+  <img src="assets/Rossi_AE.jpg" width="300" title="Semangat Commit! 🔥">
   <br>
   <i>"Asupan psikolog wkwkwk."</i>
 </p>
