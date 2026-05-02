@@ -20,12 +20,12 @@
 ---
 
 ## 🔗 Project Progress (School Assignment)
-- [x] Desain UI/UX (Figma)
-- [x] Buat homepage (Mobile View)
-- [x] Buat API database
+- [x] UI/UX Design (Figma)
+- [x] Homepage Development (Mobile View)
+- [x] Database API Development
 - [ ] Database Setup (Supabase)
-- [ ] Buat page lain
-- [ ] Integrasi Next JS Mobile Optimization
+- [ ] Additional Pages Development
+- [ ] Next JS Mobile Optimization Integration
 
 ---
 
