@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-export default function LoginPage() {
+export default function Home() {
+  
   // State untuk menyimpan input user
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
