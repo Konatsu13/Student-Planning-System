@@ -1,92 +1,101 @@
-'use client'; // Wajib karena kita pakai state untuk form
+'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import LoginForm from './_components/loginform';
+import RegisterForm from './_components/registerform';
+import OtpForm from './_components/otpform';
+import NewPasswordForm from './_components/newpassword';
 
-export default function Home() {
-  
-  // State untuk menyimpan input user
+type AuthStep = 'login' | 'register' | 'otp' | 'newPassword' | 'success';
+
+export default function AuthPage() {
+  const [step, setStep] = useState<AuthStep>('login');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoggingIn, setIsLoggingIn] = useState(true); // Toggle antara Login dan Register
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // INTEGRASI DATABASE DI SINI:
-    // Jika pakai Supabase: await supabase.auth.signInWithPassword({ email, password })
-    // Jika pakai NextAuth: await signIn('credentials', { email, password })
-    
-    console.log('Submit:', { email, password, type: isLoggingIn ? 'Login' : 'Signup' });
-    alert(`Mencoba ${isLoggingIn ? 'Login' : 'Daftar'} dengan ${email}`);
+  const handleRegisterSuccess = () => {
+    // Jika perlu verifikasi OTP setelah registrasi
+    // setStep('otp');
+    // Langsung ke success jika tidak pakai OTP
+    setStep('success');
+  };
+
+  const handleLoginSuccess = () => {
+    setStep('success');
+  };
+
+  const handleOtpSuccess = () => {
+    setStep('newPassword');
+  };
+
+  const handleNewPasswordSuccess = () => {
+    setStep('login');
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4">
-      <div className="max-w-md w-full rounded-xl">
-        {/* Header */}
-        <div className="text-center mb-10">
-            {/* <image src="/assets/images/telkom-school-logo.png"></image> */}
-          <h1 className="text-18 font-bold text-[#002482]">
-            {isLoggingIn ? 'Welcome Back!' : 'Create Account'}
-          </h1>
-          <p className="text-gray-400 mt-2">
-            {isLoggingIn ? 'Sign in to continue' : 'Let’s make your account.'}
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      {/* Success Screen */}
+      {step === 'success' && (
+        <div className="w-full max-w-md mx-auto px-6 text-center">
+          <div className="flex justify-center mb-6">
+            <div className="bg-green-100 p-4 rounded-full">
+              <svg
+                className="w-12 h-12 text-green-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Success!</h2>
+          <p className="text-gray-600 mb-6">
+            Your account has been successfully created. Please wait while we redirect you...
           </p>
+          <div className="animate-pulse text-gray-500">Redirecting...</div>
         </div>
+      )}
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-sm font-medium text-gray-300">Email Address</label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full mt-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-              placeholder="name@student.com"
-            />
-          </div>
+      {/* Login Screen */}
+      {step === 'login' && (
+        <LoginForm
+          onSwitchToRegister={() => setStep('register')}
+          onSwitchToForgotPassword={() => {
+            setStep('otp');
+          }}
+        />
+      )}
 
-          <div>
-            <label className="block text-sm font-medium text-gray-300">Password</label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full mt-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-              placeholder="Your secure password"
-            />
-          </div>
+      {/* Register Screen */}
+      {step === 'register' && (
+        <RegisterForm
+          onSuccess={handleRegisterSuccess}
+          onSwitchToLogin={() => setStep('login')}
+        />
+      )}
 
-          <button
-            type="submit"
-            className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md transition duration-200 transform hover:scale-[1.02]"
-          >
-            {isLoggingIn ? 'Sign In' : 'Sign Up'}
-          </button>
-        </form>
+      {/* OTP Screen */}
+      {step === 'otp' && (
+        <OtpForm
+          email={email}
+          onSuccess={handleOtpSuccess}
+          onBack={() => setStep('login')}
+        />
+      )}
 
-        {/* Toggle Login/Sign Up */}
-        <div className="mt-8 text-center text-sm text-gray-400">
-          {isLoggingIn ? "Don't have an account?" : "Already have an account?"}{' '}
-          <button
-            onClick={() => setIsLoggingIn(!isLoggingIn)}
-            className="text-blue-400 hover:underline font-medium"
-          >
-            {isLoggingIn ? 'Sign Up here' : 'Login here'}
-          </button>
-        </div>
-        
-        {/* Tombol Back ke Home */}
-        <div className="mt-6 text-center">
-          <Link href="/" className="text-xs text-gray-500 hover:text-gray-300">
-            ← Back to Homepage
-          </Link>
-        </div>
-      </div>
+      {/* New Password Screen */}
+      {step === 'newPassword' && (
+        <NewPasswordForm
+          email={email}
+          onSuccess={handleNewPasswordSuccess}
+          onBack={() => setStep('login')}
+        />
+      )}
     </div>
   );
 }
