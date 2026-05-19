@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #171717; /* Ini warna putih */
-  --foreground: #ffffff; /* Ini warna teks hitam */
+  --background: #ffffff; /* Background putih */
+  --foreground: #000000; /* Teks hitam */
 }
 
 /* Hapus bagian @media (prefers-color-scheme: dark) agar tidak jadi hitam otomatis */

@@ -62,20 +62,17 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-6">
+    <div className="w-full max-w-md mx-auto px-6 pointer-events-auto">
       {/* Header */}
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
-          <div className="bg-cyan-100 p-3 rounded-full">
-            <CheckCircle2 className="w-8 h-8 text-cyan-500" />
-          </div>
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">Welcome Back</h1>
+        <h1 className="text-2xl font-bold text-[#002482]">Welcome Back</h1>
         <p className="text-gray-500 text-sm mt-2">Sign in to continue</p>
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 pointer-events-auto">
         {/* Email */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -148,21 +145,21 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-700 hover:bg-blue-800 disabled:bg-blue-400 text-white font-semibold py-3 rounded-lg transition duration-200 mt-6"
+          className="w-full bg-[#0099FF] hover:bg-blue-800 disabled:bg-blue-400 disabled:cursor-not-allowed cursor-pointer text-white font-semibold py-3 rounded-lg transition duration-200 mt-6 pointer-events-auto"
         >
           {loading ? 'Signing In...' : 'Login'}
         </button>
       </form>
 
       {/* Divider */}
-      <div className="relative my-6">
+      {/* <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gray-300"></div>
         </div>
         <div className="relative flex justify-center text-sm">
           <span className="px-2 bg-white text-gray-500">OR</span>
         </div>
-      </div>
+      </div> */}
 
       {/* Social Login */}
       {/* <div className="flex justify-center gap-6 mb-6">
@@ -190,12 +187,12 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
       </div> */}
 
       {/* Register Link */}
-      <div className="text-center text-sm text-gray-600">
+      <div className="text-center text-sm text-gray-600 py-4">
         Don't have an account?{' '}
         <button
           onClick={onSwitchToRegister}
           className="text-blue-700 hover:underline font-semibold"
-        >
+        > 
           Register
         </button>
       </div>

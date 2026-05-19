@@ -2,6 +2,25 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 // import "../assets/";
+import Image from "next/image";
+
+export function AuthPage() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      {/* LOGO */}
+      <div className="text-center mb-8">
+        <Image
+          src="/assets/logo.png"
+          alt="Logo"
+          width={80}
+          height={80}
+        />
+      </div>
+      
+      {/* Form content */}
+    </div>
+  );
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
