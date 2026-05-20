@@ -5,6 +5,7 @@ import LoginForm from './_components/loginform';
 import RegisterForm from './_components/registerform';
 import OtpForm from './_components/otpform';
 import NewPasswordForm from './_components/newpassword';
+import Dashboard  from '@/app/(dashboard)/page';
 
 type AuthStep = 'login' | 'register' | 'otp' | 'newPassword' | 'success';
 

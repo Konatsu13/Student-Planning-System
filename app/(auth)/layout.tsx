@@ -10,7 +10,7 @@ export function AuthPage() {
       {/* LOGO */}
       <div className="text-center mb-8">
         <Image
-          src="/assets/logo.png"
+          src="../assets/logo.svg"
           alt="Logo"
           width={80}
           height={80}

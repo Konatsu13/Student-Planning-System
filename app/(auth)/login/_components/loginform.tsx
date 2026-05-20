@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/app/utils/supabase';
 import { CheckCircle2, Eye, EyeOff, Mail, Lock } from 'lucide-react';
+import Dashboard from '@/app/(dashboard)/page';
 
 interface LoginFormProps {
   onSwitchToRegister: () => void;
@@ -52,7 +53,7 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/dashboard`,
+          redirectTo: `${window.location.origin}/dashboard`, // Redirect ke dashboard setelah login sukses
         },
       });
       if (error) throw error;
