@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import LoginForm from './_components/loginform';
 import RegisterForm from './_components/registerform';
 import OtpForm from './_components/otpform';
@@ -10,8 +11,20 @@ import Dashboard  from '@/app/(dashboard)/page';
 type AuthStep = 'login' | 'register' | 'otp' | 'newPassword' | 'success';
 
 export default function AuthPage() {
+  const router = useRouter();
   const [step, setStep] = useState<AuthStep>('login');
   const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    // Redirect ke dashboard setelah 2 detik saat success
+    if (step === 'success') {
+      const timer = setTimeout(() => {
+        router.push('/dashboard');
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [step, router]);
 
   const handleRegisterSuccess = () => {
     // Jika perlu verifikasi OTP setelah registrasi
