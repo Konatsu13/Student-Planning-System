@@ -3,9 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/app/utils/supabase';
-import { CheckCircle2, Eye, EyeOff, Mail, Lock } from 'lucide-react';
-import Dashboard from '@/app/(dashboard)/page';
-
+import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
+import Image from 'next/image';
 interface LoginFormProps {
   onSwitchToRegister: () => void;
   onSwitchToForgotPassword: () => void;
@@ -67,6 +66,13 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
       {/* Header */}
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
+          <Image
+            src="/assets/logo.png"
+            alt="SPD Logo"
+            width={60}
+            height={60}
+            className="w-20 h-20 mb-3"
+          />
         </div>
         <h1 className="text-2xl font-bold text-[#002482]">Welcome Back</h1>
         <p className="text-gray-500 text-sm mt-2">Sign in to continue</p>
@@ -126,13 +132,13 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
             />
             <span className="text-sm text-gray-600">Remember Me</span>
           </label>
-          <button
+          {/* <button
             type="button"
             onClick={onSwitchToForgotPassword}
             className="text-sm text-red-600 hover:text-red-700 font-semibold"
           >
             Forgot Password?
-          </button>
+          </button> */}
         </div>
 
         {/* Error Message */}

@@ -18,8 +18,8 @@ export default function Navbar() {
     <div>
       <nav className=" h-12 bg-white text-gray-700 flex items-center justify-between px-8 gap-6 rounded-3xl fixed bottom-4 left-4 right-4 shadow-lg">
         
-        <Link href="/">
-          <House className={getIconColor('/')} />
+        <Link href="/dashboard">
+          <House className={getIconColor('/dashboard')} />
         </Link>
         
         <Link href="/schedule">

@@ -1,43 +1,23 @@
+import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
 import Navbar from "../components/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Student Planning Digital",
-  description: "Manage your student life easily",
+  title: "Dashboard - SPD",
+  description: "Your personalized dashboard to manage your student life",
 };
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="select-none min-h-full flex flex-col overflow-x-hidden">
-        {children}
-        <Navbar />
-      </body>
-    </html>
+    <div className="w-full min-h-screen bg-white flex flex-col justify-center items-center">
+      {/* 🚀 Semua halaman di dalam folder (auth) seperti login dan register 
+          akan otomatis masuk ke dalam children ini dengan aman */}
+      {children}
+      <Navbar />
+    </div>
   );
 }
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-};

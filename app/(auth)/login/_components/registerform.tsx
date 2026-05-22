@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/app/utils/supabase';
 import { CheckCircle2, Eye, EyeOff, Mail, User, Lock } from 'lucide-react';
+import Image from 'next/image';
 
 interface RegisterFormProps {
   onSuccess: () => void;
@@ -65,18 +66,21 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
 
       if (signUpError) throw signUpError;
 
-      // Update data tambahan ke tb_user yang sudah dibuat otomatis oleh Trigger SQL
+      // Update atau buat data tambahan ke tb_user secara aman (Upsert)
       if (data.user) {
         const { error: profileError } = await supabase
           .from('tb_user')
-          .update({
+          .upsert({
+            id: data.user.id,
+            email: email,
+            password: '', // Password kosong karena auth dikelola oleh Supabase Auth
             username: fullName.toLowerCase().replace(/\s+/g, '_'), // Mengubah "Budi Santoso" jadi "budi_santoso"
             gender: gender,                                         // Menyimpan "Laki-laki" atau "Perempuan"
-          })
-          .eq('id', data.user.id); // Mencari baris berdasarkan UID yang pas
+            created_at: new Date().toISOString(),
+          }, { onConflict: 'id' }); // Melakukan update jika ID sudah ada, atau insert jika belum ada
 
         if (profileError) {
-          console.error('Profile update error:', profileError);
+          console.error('Profile upsert error:', profileError);
         }
       }
 
@@ -110,15 +114,18 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
   return (
     <div className="w-full max-w-md mx-auto px-6 py-8 pointer-events-auto">
       {/* Header */}
-      <div className="text-center mb-8">
-        <div className="flex justify-center mb-4">
-          <div className="bg-cyan-100 p-3 rounded-full">
-            <CheckCircle2 className="w-8 h-8 text-cyan-500" />
-          </div>
-        </div>
+      <div className="mb-8 justify-items-center text-center">
+        <Image
+          src="/assets/logo.png"
+          alt="SPD Logo"
+          width={60}
+          height={60}
+          className="w-20 h-20 mb-3"
+        />
         <h1 className="text-2xl font-bold text-gray-900">Create Your Account</h1>
         <p className="text-gray-500 text-sm mt-2">Let's make your account.</p>
       </div>
+ 
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-4 pointer-events-auto">
