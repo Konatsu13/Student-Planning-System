@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff; /* Background putih */
+  --foreground: #000000; /* Teks hitam */
+}
+
+/* Hapus bagian @media (prefers-color-scheme: dark) agar tidak jadi hitam otomatis */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Biar gak ada bayangan biru pas klik tombol di HP */
+* { 
+  -webkit-tap-highlight-color: transparent; 
+}
