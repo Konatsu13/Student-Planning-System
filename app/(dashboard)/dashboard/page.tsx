@@ -15,3 +15,9 @@ export default function Dashboard() {
     </div>
   );
 }
+
+export function Today() {
+  const today = new Date();
+  const options: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+  return today.toLocaleDateString('id-ID', options);
+}
