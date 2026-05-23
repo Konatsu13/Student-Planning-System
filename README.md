@@ -23,10 +23,10 @@
 - [x] UI/UX Design (Figma)
 - [x] Homepage Development (Mobile View)
 - [x] Database API Development
-- [ ] Database Setup (Supabase)
+- [x] Database Setup (Supabase)
 - [ ] Additional Pages Development
-- [ ] Next JS Mobile Optimization Integration
-
+- [x] Next JS Mobile Optimization Integration
+- [ ] Complete All Page And Features
 ---
 
 ## 🛠 The Technology We Use
