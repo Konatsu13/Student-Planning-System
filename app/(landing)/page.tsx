@@ -48,9 +48,37 @@ export default function LandingPage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-blue-100 py-6 text-center text-gray-600 text-sm">
-        <p>&copy; 2026 Kelompok 2 - SPD. All rights reserved.</p>
+{/* Footer Gaya Hoyoverse - Responsive Version (HP, Tablet, Laptop) */}
+      <footer className="w-full bg-[#039ffaff] text-gray-400 relative mt-auto pt-10 pb-6 text-center">
+        
+        {/* 1. BAGIAN GELOMBANG KURVA ASIMETRIS (Full Width & Stretch) */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform -translate-y-[99%] pointer-events-none">
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="relative block w-full h-[40px] md:h-[60px]"
+          >
+            {/* Path SVG original yang ditarik full lebar kontainer */}
+            <path
+              d="M0,32 C300,120 600,0 900,32 L1200,60 L1200,120 L0,120 Z"
+              fill="#039ffaff"
+            ></path>
+          </svg>
+        </div>
+
+        {/* 2. KONTEN DI DALAM FOOTER */}
+        <div className="px-4 flex flex-col items-center gap-2 relative z-10">
+          {/* Logo / Singkatan Aplikasi */}
+          <div className="text-xs font-bold tracking-widest text-white mb-1">
+            KELOMPOK 2 • SPD
+          </div>
+
+          {/* Copyright Text */}
+          <p className="text-[11px] sm:text-xs text-[#3525CD] font-light">
+            &copy; 2026 Kelompok 2 - SPD. All rights reserved.
+          </p>
+        </div>
+
       </footer>
     </div>
   );
