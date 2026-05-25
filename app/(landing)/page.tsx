@@ -70,11 +70,11 @@ export default function LandingPage() {
         <div className="px-4 flex flex-col items-center gap-2 relative z-10">
           {/* Logo / Singkatan Aplikasi */}
           <div className="text-xs font-bold tracking-widest text-white mb-1">
-            KELOMPOK 2 • SPD
+            Version 0.1.0 (Beta)
           </div>
 
           {/* Copyright Text */}
-          <p className="text-[11px] sm:text-xs text-[#3525CD] font-light">
+          <p className="text-[11px] sm:text-xs text-black font-light">
             &copy; 2026 Kelompok 2 - SPD. All rights reserved.
           </p>
         </div>

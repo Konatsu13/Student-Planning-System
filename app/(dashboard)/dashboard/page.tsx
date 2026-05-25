@@ -5,6 +5,7 @@ import { supabase } from '@/app/utils/supabase';
 import Header from '../../components/header';
 import { Plus, Edit3, Calendar, Book, Check, Minus, AlertTriangle, ChevronDown, ChevronUp, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import ScheduleModal from '../../components/ScheduleModal';
+import {useRouter} from 'next/navigation';
 
 export type Schedule = {
   id: string;
@@ -32,6 +33,8 @@ export default function Dashboard() {
 
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchUserAndSchedules = async () => {
@@ -346,11 +349,15 @@ export default function Dashboard() {
         </div>
 
         <div className="mt-6 md:mt-8 flex gap-3 md:gap-4 max-w-md md:max-w-xl mx-auto">
-          <button className="flex-1 bg-green-100 text-green-700 py-2.5 sm:py-3 md:py-4 rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 md:gap-3 border border-green-200 text-sm sm:text-base md:text-lg hover:bg-green-200 transition-colors">
+          <button className="flex-1 bg-green-100 text-green-700 py-2.5 sm:py-3 md:py-4 rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 md:gap-3 border border-green-700 text-sm sm:text-base md:text-lg hover:bg-green-200 transition-colors"
+          onClick={() => router.push('/dashboard')}
+          >
             <Book className="w-5 h-5 md:w-6 md:h-6" />
             Tugas
           </button>
-          <button className="flex-1 bg-blue-50 text-blue-600 py-2.5 sm:py-3 md:py-4 rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 md:gap-3 border border-blue-100 text-sm sm:text-base md:text-lg hover:bg-blue-100 transition-colors">
+          <button className="flex-1 bg-blue-50 text-blue-600 py-2.5 sm:py-3 md:py-4 rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 md:gap-3 border border-blue-700 text-sm sm:text-base md:text-lg hover:bg-blue-100 transition-colors"
+          onClick={() => router.push('/schedule')}
+          >
             <Calendar className="w-5 h-5 md:w-6 md:h-6" />
             Jadwal
           </button>

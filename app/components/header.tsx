@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/app/utils/supabase';
 import UserAvatar from './useravatar';
 import { Bell } from 'lucide-react';
+import {useRouter} from 'next/navigation';
 
 export default function DashboardHeader() {
   const [gender, setGender] = useState<string>(''); // State untuk menampung jenis kelamin
   const [name, setName] = useState<string>(''); // State untuk nama user
   const [loading, setLoading] = useState<boolean>(true);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -100,7 +102,8 @@ export default function DashboardHeader() {
       </div>
 
       {/* Kanan: Tombol Notifikasi (Lonceng) */}
-      <button className="p-2 hover:bg-gray-100 rounded-full transition-colors relative flex-shrink-0">
+      <button className="p-2 hover:bg-gray-100 rounded-full transition-colors relative flex-shrink-0" onClick={() => router.push('/notifications')}
+        >
         <Bell className="w-6 h-6 text-gray-800" />
         <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
       </button>
