@@ -36,13 +36,7 @@ export default function LandingPage() {
               href="/login"
               className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-bold text-lg shadow-md hover:shadow-lg"
             >
-              Sign Up
-            </Link>
-            <Link
-              href="/login"
-              className="px-8 py-4 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition font-bold text-lg"
-            >
-              Sign In
+              Bergabung Sekarang
             </Link>
           </div>
         </div>
