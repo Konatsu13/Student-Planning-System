@@ -92,7 +92,7 @@ export default function Sidebar({ className = "" }: SidebarProps) {
             SPD System
           </span>
           <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-            Planning Digital
+            Basic Edition
           </span>
         </div>
       </div>
