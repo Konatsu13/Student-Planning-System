@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Login - SPD",
+  title: "Login",
   description: "Login or register to manage your student life easily",
 };
 

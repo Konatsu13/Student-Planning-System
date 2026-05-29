@@ -506,7 +506,7 @@ export default function ProfilePage() {
           </button>
           
           <div className="text-center text-[10px] text-slate-400 mt-6 font-medium">
-            Version 0.2.0 (Beta) <br/>
+            Version 1.0.0 <br/>
             © 2026 Student Planning Digital. Hak Cipta Dilindungi.
           </div>
         </div>

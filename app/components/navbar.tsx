@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="">
+    <div className="md:hidden">
       <nav className=" h-12 bg-white text-gray-700 flex items-center justify-between px-8 gap-6 rounded-3xl fixed bottom-4 left-4 right-4 shadow-lg">
         
         <Link href="/dashboard">
