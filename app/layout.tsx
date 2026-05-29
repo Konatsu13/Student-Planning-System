@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Student Planning Digital",
   description: "Manage your student life easily",
+  verification: {
+    google: "GbddcKUJ5ydlfG-hfQgc3l2jIYebSCALcrLYSxmOFDI",
+  },
 };
 
 export default function RootLayout({
