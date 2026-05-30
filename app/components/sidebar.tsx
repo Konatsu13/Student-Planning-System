@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { supabase } from '@/app/utils/supabase';
+import { APP_VERSION } from '@/config/version';
 import UserAvatar from './useravatar';
 import Image from 'next/image';
 import { House, Calendar, Bell, CircleUserRound, LogOut } from 'lucide-react';
@@ -160,7 +161,7 @@ export default function Sidebar({ className = "" }: SidebarProps) {
         </button>
         
         <div className="text-center text-[10px] text-slate-400 font-bold tracking-wider">
-          VERSION 1.0.0
+          VERSION {APP_VERSION}
         </div>
       </div>
 

@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/app/utils/supabase';
+import { checkEmail } from '@/app/utils/emailValidator';
+import { verifyTurnstile } from '@/app/utils/verifyTurnstile';
+import TurnstileWidget from '@/app/components/TurnstileWidget';
 import { CheckCircle2, Eye, EyeOff, Mail, User, Lock } from 'lucide-react';
 import Image from 'next/image';
 
@@ -22,10 +25,13 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState('');
+  const [captchaError, setCaptchaError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setCaptchaError('');
 
     // Validasi
     if (!fullName.trim()) {
@@ -36,6 +42,14 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
       setError('Email is required');
       return;
     }
+
+    // Validasi email bukan sekali pakai
+    const isValidEmail = await checkEmail(email);
+    if (!isValidEmail) {
+      setError('Disposable email addresses are not allowed. Please use a valid email.');
+      return;
+    }
+
     if (!gender) {
       setError('Gender is required');
       return;
@@ -49,9 +63,23 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
       return;
     }
 
+    // Verifikasi Turnstile
+    if (!captchaToken) {
+      setCaptchaError('Please complete the security check');
+      return;
+    }
+
     setLoading(true);
 
     try {
+      // Verifikasi token Turnstile di server
+      const captchaValid = await verifyTurnstile(captchaToken);
+      if (!captchaValid) {
+        setCaptchaError('Security check failed. Please try again.');
+        setLoading(false);
+        return;
+      }
+
       // Sign up dengan Supabase Auth
       const { data, error: signUpError } = await supabase.auth.signUp({
         email,
@@ -85,7 +113,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
       }
 
       onSuccess();
-      
+
       // ➡️ FIX REDIRECT: Diarahkan ke "/" karena folder kamu (dashboard) berbentuk Route Group
       setTimeout(() => {
         router.push('/');
@@ -212,10 +240,21 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
           </div>
         </div>
 
-        {/* Error Message */}
+        {/* Turnstile Widget */}
+        <TurnstileWidget
+          onTokenChange={setCaptchaToken}
+          onError={setCaptchaError}
+        />
+
+        {/* Error Messages */}
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
             {error}
+          </div>
+        )}
+        {captchaError && (
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
+            {captchaError}
           </div>
         )}
 

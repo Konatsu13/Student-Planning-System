@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { APP_VERSION } from '@/config/version';
 
 export default function LandingPage() {
   return (
@@ -100,7 +101,7 @@ export default function LandingPage() {
               
               {/* Version Info */}
               <div className="text-[11px] font-bold tracking-widest text-slate-500 bg-slate-800/30 px-3 py-1 rounded-full border border-slate-800/50">
-                Version 1.0.0
+                Version {APP_VERSION}
               </div>
             </div>
 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/app/utils/supabase';
 import { useRouter } from 'next/navigation';
+import { APP_VERSION } from '@/config/version';
 import UserAvatar from '../../components/useravatar';
 import { 
   User, Mail, Lock, Settings, ChevronRight, 
@@ -506,7 +507,7 @@ export default function ProfilePage() {
           </button>
           
           <div className="text-center text-[10px] text-slate-400 mt-6 font-medium">
-            Version 1.0.0 <br/>
+            Version {APP_VERSION} <br/>
             © 2026 Student Planning Digital. Hak Cipta Dilindungi.
           </div>
         </div>
