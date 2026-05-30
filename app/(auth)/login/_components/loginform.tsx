@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '@/app/utils/supabase';
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
 import Image from 'next/image';
+import TurnstileWidget from '@/app/components/TurnstileWidget';
 interface LoginFormProps {
   onSwitchToRegister: () => void;
   onSwitchToForgotPassword: () => void;
@@ -18,13 +19,21 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState('');
+  const [captchaError, setCaptchaError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setCaptchaError('');
 
     if (!email.trim() || !password.trim()) {
       setError('Email and password are required');
+      return;
+    }
+
+    if (!captchaToken) {
+      setCaptchaError('Please complete the security check');
       return;
     }
 
@@ -34,6 +43,9 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
       const { error: signInError } = await supabase.auth.signInWithPassword({
         email,
         password,
+        options: {
+          captchaToken,
+        },
       });
 
       if (signInError) throw signInError;
@@ -132,19 +144,23 @@ export default function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword
             />
             <span className="text-sm text-gray-600">Remember Me</span>
           </label>
-          {/* <button
-            type="button"
-            onClick={onSwitchToForgotPassword}
-            className="text-sm text-red-600 hover:text-red-700 font-semibold"
-          >
-            Forgot Password?
-          </button> */}
         </div>
+
+        {/* Turnstile Widget */}
+        <TurnstileWidget
+          onTokenChange={setCaptchaToken}
+          onError={setCaptchaError}
+        />
 
         {/* Error Message */}
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
             {error}
+          </div>
+        )}
+        {captchaError && (
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
+            {captchaError}
           </div>
         )}
 

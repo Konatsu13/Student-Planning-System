@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/app/utils/supabase';
 import { checkEmail } from '@/app/utils/emailValidator';
-import { verifyTurnstile } from '@/app/utils/verifyTurnstile';
 import TurnstileWidget from '@/app/components/TurnstileWidget';
 import { CheckCircle2, Eye, EyeOff, Mail, User, Lock } from 'lucide-react';
 import Image from 'next/image';
@@ -72,14 +71,6 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
     setLoading(true);
 
     try {
-      // Verifikasi token Turnstile di server
-      const captchaValid = await verifyTurnstile(captchaToken);
-      if (!captchaValid) {
-        setCaptchaError('Security check failed. Please try again.');
-        setLoading(false);
-        return;
-      }
-
       // Sign up dengan Supabase Auth
       const { data, error: signUpError } = await supabase.auth.signUp({
         email,
@@ -89,6 +80,7 @@ export default function RegisterForm({ onSuccess, onSwitchToLogin }: RegisterFor
             full_name: fullName,
             gender: gender,
           },
+          captchaToken,
         },
       });
 
